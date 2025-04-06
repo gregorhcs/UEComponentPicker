@@ -60,6 +60,11 @@ public:
 		AllowedClass = NewAllowedClass;
 	}
 
+	FORCEINLINE bool IsSet() const
+	{
+		return Component != nullptr;
+	}
+
 protected:
 	/** Allowed component class. */
 	UPROPERTY(EditDefaultsOnly, Category=ComponentPicker)
