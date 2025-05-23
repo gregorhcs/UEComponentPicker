@@ -30,7 +30,8 @@ public class ComponentPickerEditor : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "Slate",
-                "SlateCore"
+                "SlateCore",
+                "PropertyEditor"
             }
         );
     }

@@ -2,6 +2,7 @@
 // Released under the MIT license https://opensource.org/license/MIT/
 
 #include "ComponentPickerEditor.h"
+#include "PropertyEditorModule.h"
 
 #include "ComponentPickerTypeCustomization.h"
 
