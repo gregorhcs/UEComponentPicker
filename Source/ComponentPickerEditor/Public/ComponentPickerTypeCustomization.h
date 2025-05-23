@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BlueprintEditor.h"
 #include "SSubobjectEditor.h"
+#include "IPropertyTypeCustomization.h"
 
 /**
  * Editor property customization for @FComponentPicker.
