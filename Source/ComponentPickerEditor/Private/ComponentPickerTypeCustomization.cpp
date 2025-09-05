@@ -342,7 +342,7 @@ AActor* FComponentPickerTypeCustomization::FetchActorCDOForProperty(
                 {
                     if (EditedBlueprintAsset->GeneratedClass == Outer)
                     {
-                        if (UObject* CDO = Cast<UClass>(Outer)->ClassDefaultObject)
+                        if (UObject* CDO = Cast<UClass>(Outer)->GetDefaultObject())
                         {
                             if (AActor* ActorCDO = Cast<AActor>(CDO))
                             {
