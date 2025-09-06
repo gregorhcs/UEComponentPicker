@@ -31,6 +31,9 @@ public:
 	/** Get the currently selected component. */
 	UActorComponent* Get(const UActorComponent* ComponentContext) const
 	{
+		if (Component == nullptr)
+			return nullptr;
+		
 		if (!Instance.IsExplicitlyNull())
 			return Instance.Get();
 		
