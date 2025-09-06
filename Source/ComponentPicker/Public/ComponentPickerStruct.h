@@ -4,6 +4,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/ActorComponent.h"
+#include "GameFramework/Actor.h"
 #include "UObject/Object.h"
 #include "ComponentPickerStruct.generated.h"
 
@@ -36,12 +38,37 @@ public:
 		
 		if (!Instance.IsExplicitlyNull())
 			return Instance.Get();
+
+		if (ComponentContext == nullptr)
+			return nullptr;
+		
+		return Get(ComponentContext->GetOwner());
+	}
+
+	/** Get the currently selected component pre-casted. */
+	template<typename TComponentClass>
+	TComponentClass* Get(const AActor* ActorContext) const
+	{
+		return Cast<TComponentClass>(Get(ActorContext));
+	}
+
+	/** Get the currently selected component. */
+	UActorComponent* Get(const AActor* ActorContext) const
+	{
+		if (!Instance.IsExplicitlyNull())
+			return Instance.Get();
+
+		if (ActorContext == nullptr)
+			return nullptr;
+
+		if (!IsSet())
+			return nullptr;
 		
 		FString ComponentStr = Component->GetFName().ToString();
 		ComponentStr.RemoveFromEnd("_GEN_VARIABLE");
 		const FName ComponentName = FName(ComponentStr);
 		
-		const TSet<UActorComponent*>& OwnedComponents = ComponentContext->GetOwner()->GetComponents();
+		const TSet<UActorComponent*>& OwnedComponents = ActorContext->GetComponents();
 		for (auto* ComponentInstance : OwnedComponents)
 		{
 			if (ComponentInstance->GetName() == ComponentName)
