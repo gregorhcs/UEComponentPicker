@@ -30,7 +30,7 @@ The plugin was developed for Unreal Engine 5.5+, though it should work for all 5
 
 The best way is to clone this repository as a submodule; that way you can contribute
 pull requests if you want and more importantly, easily get latest updates. 
-The project should be placed in your project's `Plugins` folder.
+The repo should be placed in your project's `Plugins` folder.
 
 ```
 > cd YourProject
